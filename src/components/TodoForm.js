@@ -18,7 +18,14 @@ class TodoForm extends React.Component {
   addTask = (e) => {
     e.preventDefault();
     this.props.handleAddTask(this.state.task);
-    // console.log(this.state.task);
+    this.setState({
+      task: ""
+    })
+  }
+
+  clearTasks = (e) => {
+    e.preventDefault();
+    this.props.clean();
   }
 
   render() {
@@ -26,7 +33,7 @@ class TodoForm extends React.Component {
       <form>
         <input type="text" name="task" value={this.state.task} onChange={this.handleChange} />
         <button onClick={this.addTask}>Add Todo</button>
-        <button>Clean Todo</button>
+        <button onClick={this.clearTasks}>Clean Todo</button>
       </form>
 
     )
