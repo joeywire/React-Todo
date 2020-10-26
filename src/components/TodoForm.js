@@ -1,6 +1,7 @@
 import React from 'react';
 
-class ToDoForm extends React.Component {
+
+class TodoForm extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -14,15 +15,17 @@ class ToDoForm extends React.Component {
     });
   };
 
-  addTask = () => {
-
+  addTask = (e) => {
+    e.preventDefault();
+    this.props.handleAddTask(this.state.task);
+    // console.log(this.state.task);
   }
 
   render() {
     return ( 
       <form>
         <input type="text" name="task" value={this.state.task} onChange={this.handleChange} />
-        <button>Add Todo</button>
+        <button onClick={this.addTask}>Add Todo</button>
         <button>Clean Todo</button>
       </form>
 
@@ -30,4 +33,4 @@ class ToDoForm extends React.Component {
   }
 };
 
-export default ToDoForm;
+export default TodoForm;

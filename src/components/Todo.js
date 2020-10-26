@@ -1,20 +1,9 @@
 import React from 'react';
-import ToDoForm from './TodoForm';
 
-class ToDo extends React.Component {
-  constructor() {
-    super();
-    
-  }
-
-  render() {
-    return (
-      <div>
-        <h2>Here is ToDo Component</h2>
-        <ToDoForm handleAddTask={this.props.handleAddTask}/>
-      </div>
-    )
-  }
+const Todo = (props) => {
+  return(
+    <p>{props.task}</p>
+  )
 }
 
-export default ToDo;
+export default Todo;
